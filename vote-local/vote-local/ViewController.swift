@@ -19,6 +19,7 @@ class ViewController: UIViewController {
         label.text = "hello"
         self.view.addSubview(label)
         print("help: ", APIStuff.getDataForAddress())
+        print("user help: ", APIStuff.createUser())
     }
     
 }

@@ -409,6 +409,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.medium-gray.vote-local";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Debug;
 		};
@@ -420,6 +421,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.medium-gray.vote-local";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Release;
 		};
@@ -488,6 +490,7 @@
 				E21C10021D66474F00FDCA3B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E21C10031D66474F00FDCA3B /* Build configuration list for PBXNativeTarget "vote-localTests" */ = {
 			isa = XCConfigurationList;
@@ -496,6 +499,7 @@
 				E21C10051D66474F00FDCA3B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E21C10061D66474F00FDCA3B /* Build configuration list for PBXNativeTarget "vote-localUITests" */ = {
 			isa = XCConfigurationList;
@@ -504,6 +508,7 @@
 				E21C10081D66474F00FDCA3B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
