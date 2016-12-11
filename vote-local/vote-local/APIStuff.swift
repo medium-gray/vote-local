@@ -16,17 +16,17 @@ class APIStuff: NSObject {
     
     class func getDataForAddress() -> Dictionary<String, AnyObject> {
         
-        let url = NSURL(string: ENDPOINT)
+        let url = URL(string: ENDPOINT)
         
         var result = Dictionary<String, AnyObject>()
         
 //        else {
 //            print("Error: cannot create URL")
 //        }
-        let urlRequest = NSURLRequest(URL: url!)
-        let config = NSURLSessionConfiguration.defaultSessionConfiguration()
-        let session = NSURLSession(configuration: config)
-        let task = session.dataTaskWithRequest(urlRequest, completionHandler: { (data, response, error) in
+        let urlRequest = URLRequest(url: url!)
+        let config = URLSessionConfiguration.default
+        let session = URLSession(configuration: config)
+        let task = session.dataTask(with: urlRequest, completionHandler: { (data, response, error) in
             // do stuff with response, data & error here
             
             //TODO: check if response status code = 200
@@ -42,7 +42,7 @@ class APIStuff: NSObject {
                 }
                 result = jsonResult
             } else {
-                result = ["Error message": "Did not return any data"]
+                result = ["Error message": "Did not return any data" as AnyObject]
             }
         })
         
@@ -52,9 +52,9 @@ class APIStuff: NSObject {
     }
     
     
-    class func nsdataToJSON(data: NSData) -> AnyObject? {
+    class func nsdataToJSON(_ data: Data) -> AnyObject? {
         do {
-            return try NSJSONSerialization.JSONObjectWithData(data, options: .MutableContainers)
+            return try JSONSerialization.jsonObject(with: data, options: .mutableContainers)
         } catch let myJSONError {
             print(myJSONError)
         }
@@ -63,14 +63,14 @@ class APIStuff: NSObject {
     
     
     class func createUser() -> Dictionary<String, AnyObject> {
-        let url = NSURL(string: "http://localhost:8000/users/")
+        let url = URL(string: "http://localhost:8000/users/")
         
         var result = Dictionary<String, AnyObject>()
         
-        let urlRequest = NSURLRequest(URL: url!)
-        let config = NSURLSessionConfiguration.defaultSessionConfiguration()
-        let session = NSURLSession(configuration: config)
-        let task = session.dataTaskWithRequest(urlRequest, completionHandler: { (data, response, error) in
+        let urlRequest = URLRequest(url: url!)
+        let config = URLSessionConfiguration.default
+        let session = URLSession(configuration: config)
+        let task = session.dataTask(with: urlRequest, completionHandler: { (data, response, error) in
             // do stuff with response, data & error here
             
             //TODO: check if response status code = 200
@@ -79,7 +79,7 @@ class APIStuff: NSObject {
                 print(jsonResult)
                 result = jsonResult
             } else {
-                result = ["Error message": "Did not return any data"]
+                result = ["Error message": "Did not return any data" as AnyObject]
             }
         })
         
