@@ -30,7 +30,7 @@ class APIStuff: NSObject {
             // do stuff with response, data & error here
             
             //TODO: check if response status code = 200
-            if let jsonResult = self.nsdataToJSON(data!) as? Dictionary<String, AnyObject> {
+            if let jsonResult = self.nsdataToJSON(data: data!) as? Dictionary<String, AnyObject> {
                 // do whatever with jsonResult
                 for item in jsonResult {
 //                    if item.0 == "offices" {
@@ -52,7 +52,7 @@ class APIStuff: NSObject {
     }
     
     
-    class func nsdataToJSON(_ data: Data) -> AnyObject? {
+    class func nsdataToJSON(data: Data) -> Any? {
         do {
             return try JSONSerialization.jsonObject(with: data, options: .mutableContainers)
         } catch let myJSONError {
@@ -74,7 +74,7 @@ class APIStuff: NSObject {
             // do stuff with response, data & error here
             
             //TODO: check if response status code = 200
-            if let jsonResult = self.nsdataToJSON(data!) as? Dictionary<String, AnyObject> {
+            if let jsonResult = self.nsdataToJSON(data: data!) as? Dictionary<String, AnyObject> {
                 // do whatever with jsonResult
                 print(jsonResult)
                 result = jsonResult
