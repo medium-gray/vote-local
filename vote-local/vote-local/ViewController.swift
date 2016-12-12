@@ -13,13 +13,8 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.blue
-        
-        let label = UILabel(frame: CGRect(x: 200, y: 0, width: 200, height: 800))
-        label.text = "hello"
-        self.view.addSubview(label)
-        print("help: ", APIStuff.getDataForAddress())
-        print("user help: ", APIStuff.createUser())
+        let landingView = LandingView(frame: CGRect(x: 0, y: 0, width: 200, height: 600))
+        self.view.addSubview(landingView)
     }
     
 }

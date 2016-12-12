@@ -62,14 +62,31 @@ class APIStuff: NSObject {
     }
     
     
-    class func createUser() -> Dictionary<String, AnyObject> {
+    class func createUser(username: String, email: String, password: String, address: String, party: String, name: String) -> Dictionary<String, AnyObject> {
         let url = URL(string: "http://localhost:8000/users/")
         
         var result = Dictionary<String, AnyObject>()
         
-        let urlRequest = URLRequest(url: url!)
+        var urlRequest = URLRequest(url: url!)
+        urlRequest.httpMethod = "POST"
+
+        let params = ["username":username as AnyObject,
+                      "email":email as AnyObject,
+                      "password":password as AnyObject,
+                      "voter":["address":address,
+                               "party":party,
+                               "name":name] as AnyObject] as Dictionary<String, AnyObject>
+        do {
+        urlRequest.httpBody = try JSONSerialization.data(
+            withJSONObject: params,
+            options: JSONSerialization.WritingOptions.prettyPrinted)
+        } catch {
+            print("error with json serialization")
+        }
+        urlRequest.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
         let config = URLSessionConfiguration.default
         let session = URLSession(configuration: config)
+        
         let task = session.dataTask(with: urlRequest, completionHandler: { (data, response, error) in
             // do stuff with response, data & error here
             
